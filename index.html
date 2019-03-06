@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="display-4 mb-5">Quản Lý Trung Tâm</header>
+        <!-- Phan tab menu -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#DanhSachNguoiDung" role="tab" data-toggle="tab">Danh sách người
+                    dùng</a>
+            </li>   
+            <li class="nav-item">
+                <a class="nav-link" href="#DanhSachKhoaHoc" role="tab" data-toggle="tab">Danh sách khóa học</a>
+            </li>
+        </ul>
+        <br />
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!--Danh sách người dùng -->
+            <div role="tabpanel" class="tab-pane  in active" id="DanhSachNguoiDung">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="timKiem" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button id="btnTimKiemNguoiDung" class="btn btn-success" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+                <div class="clear-fix"></div>
+                <br />
+                <button id="btnThemNguoiDung" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+                    Thêm người dùng
+                    <i class="fa fa-plus"></i>
+                </button>
+                <div class="clear-fix"></div>
+                <br />
+                <div class="tblNguoiDung" id="tblNguoiDung">
+                    <table class="table">
+                        <thead>
+                            <th>STT</th>
+                            <th>Tài khoản</th>
+                            <th>Mật khẩu</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Thao tác</th>
+                        </thead>
+                        <tbody id="tblDanhSachNguoiDung">
+
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+            </div>
+            <!-- Kết thúc danh sách người dùng -->
+            <!-- Danh sách khóa học -->
+            <div role="tabpanel" class="tab-pane fade" id="DanhSachKhoaHoc">
+
+                <div class="input-group">
+                    <input type="text" class="form-control" id= "timKiemKH" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button id="btnTimKiemKhoaHoc" class="btn btn-success" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+                <div class="clear-fix"></div>
+                <br />
+                <div class="row">
+                <button id="btnThemKhoaHoc" data-toggle="modal" data-target="#myModal2" class="btn btn-success">
+                    Thêm khóa học
+                    <i class="fa fa-plus"></i>
+                </button>
+                <div class="col-1">
+
+                </div>
+                <button id="btnGhiDanh" data-toggle="modal" data-target="#myModal3" class="btn btn-warning">
+                    Ghi danh khóa học
+                </button>
+                </div>
+                <div class="clear-fix"></div>
+                <br />
+                <div class="tblKhoaHoc" id="tblKhoaHoc">
+                    <table class="table">
+                        <thead>
+                            <th>STT</th>
+                            <th>Mã Khóa Học</th>
+                            <th>Tên Khóa Học</th>
+                            <th>Mô Tả</th>
+                            <th>Hình ảnh</th>
+                            <th>Lượt xem</th>
+                            <th>Người tạo</th>
+                            <th>Thao tác</th>
+                        </thead>
+                        <tbody id="tblDanhSachKhoaHoc">
+
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+
+            </div>
+            <!-- Kết thúc danh sách khóa học -->
+        </div>
+
+
+
+        <!--KetThuc Tabmenu-->
+
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Tài khoản</label>
+                            <input id="TaiKhoan" class="form-control" placeholder="Nhập vào tài khoản">
+                        </div>
+                        <div class="form-group">
+                            <label>Họ tên</label>
+                            <input id="HoTen" class="form-control" placeholder="Nhập vào họ tên">
+                        </div>
+                        <div class="form-group">
+                            <label>Mật khẩu</label>
+                            <input id="MatKhau" class="form-control" placeholder="Nhập vào mật khẩu" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input id="Email" class="form-control" placeholder="Nhập vào Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input id="SoDienThoai" class="form-control" placeholder="Nhập vào số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <label>Mã loại người dùng</label>
+                            <select id="maLoaiNguoiDung" class="form-control">
+                                <option value="HV">Học viên</option>
+                                <option value="GV">Giáo vụ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<!-- modal2 -->
+        <div class="modal fade" id="myModal2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title ">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Mã Khóa Học</label>
+                            <input id="MaKhoaHoc" class="form-control" placeholder="Nhập vào mã khóa học">
+                        </div>
+                        <div class="form-group">
+                            <label>Tên Khóa Học</label>
+                            <input id="TenKhoaHoc" class="form-control" placeholder="Nhập vào tài khoản">
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <input id="MoTa" class="form-control" placeholder="Nhập vào mô tả">
+                        </div>
+                        <div class="form-group">
+                            <label>Hình Ảnh</label>
+                            <input id="HinhAnh" class="form-control" placeholder="Nhập vào link hình ảnh" >
+                        </div>
+                        <div class="form-group">
+                            <label>Lượt xem</label>
+                            <input id="LuotXem" class="form-control" placeholder="Nhập vào lượt xem" >
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<!-- modal3  -->
+<div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title ">Ghi danh</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Mã Khóa Học</label>
+                    <input id="MaKhoaHocGD" class="form-control" placeholder="Nhập vào mã khóa học">
+                </div>
+                <div class="form-group">
+                    <label>Tài Khoản</label>
+                    <input id="TenTaiKhoan" class="form-control" placeholder="Nhập vào tài khoản">
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="./js/KhoaHoc.js"></script>
+    <script src="./js/NguoiDung.js"></script>
+    <script src="./js/KhoaHocService.js"></script>
+    <script src="./js/NguoiDungService.js"></script>
+
+</body>
+
+</html>
